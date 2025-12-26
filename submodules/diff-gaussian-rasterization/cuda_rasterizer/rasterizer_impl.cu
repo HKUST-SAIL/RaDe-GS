@@ -566,7 +566,7 @@ void CudaRasterizer::Rasterizer::backward(
 		dL_dsh,
 		(glm::vec3*)dL_dscale,
 		(glm::vec4*)dL_drot,
-		(float4*)dL_dconic,
+		(float4*)geomState.conic_opacity,
 		dL_dopacity), debug)
 }
 

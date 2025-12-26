@@ -24,20 +24,20 @@ git clone https://github.com/BaowenZ/RaDe-GS.git --recursive
 ## Install dependencies.
 1. create an environment
 ```
-conda create -n radegs python=3.9
+conda create -n radegs python=3.12
 conda activate radegs
 ```
 
 2. install pytorch and other dependencies.
 ```
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu130
 pip install -r requirements.txt
 ```
 
 3. install submodules
 ```
-pip install submodules/diff-gaussian-rasterization
-pip install submodules/simple-knn/
+pip install submodules/diff-gaussian-rasterization --no-build-isolation
+pip install submodules/simple-knn/ --no-build-isolation
 
 # tetra-nerf for Marching Tetrahedra
 cd submodules/tetra_triangulation
@@ -46,7 +46,7 @@ conda install conda-forge::gmp
 conda install conda-forge::cgal
 cmake .
 # you can specify your own cuda path
-# export CPATH=/usr/local/cuda-11.3/targets/x86_64-linux/include:$CPATH
+# export CPATH=/usr/local/cuda/include:$CPATH
 make 
 pip install -e .
 ```
